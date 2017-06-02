@@ -65,6 +65,10 @@ StyledInput.defaultProps = {
 }
 
 class Input extends React.Component {
+  focus() {
+    this.input.focus();
+  }
+
   render() {
     return (
       <InputWrapper
@@ -72,6 +76,7 @@ class Input extends React.Component {
         multiline={this.props.multiline}
         numberOfLines={this.props.numberOfLines}>
         <StyledInput
+          innerRef={component => this.input = component}
           inlineLabel={this.props.inlineLabel}
           placeholderTextColor={this.props.theme.BaseInput.placeholderColor}
           {...this.props}/>
